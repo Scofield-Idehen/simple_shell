@@ -1,0 +1,33 @@
+" This is a program written by Scofield Idehen for ALX School
+" Project: Simple Shell Implementation
+" Author: Scofield Idehen
+" Date: November 3, 2023
+
+" Set some basic Vim settings
+set number
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Define a function to edit a C source file
+function! EditCSourceFile()
+    " Specify the name of your C source file
+    let c_file = "simple_shell.c"
+
+    " Check if the file exists
+    if filereadable(c_file)
+        " Open the C source file for editing
+        execute "edit " . c_file
+        echo "Editing " . c_file
+    else
+        echo "C source file '" . c_file . "' not found. Please create it first."
+    endif
+endfunction
+
+" Map a key sequence to execute the function
+map <F8> :call EditCSourceFile()<CR>
+
+" Display project information when Vim starts
+autocmd VimEnter * :echo "Welcome to the Simple Shell Implementation project by Scofield. Press <F8> to edit the C source file."
+
+" You can save and exit this file using :wq in normal mode
